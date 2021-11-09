@@ -9,12 +9,14 @@ cl = 0
 @app.route('/')
 def homepage():
     main()
+    
     return render_template('home.html', sentiment = 0, text = "")
 
 @app.route('/action', methods=["POST"])
 def action():
     text = request.form.get("text")
     sentiment = estimate(text)
+
     return render_template('home.html', text = text, sentiment = sentiment)
 
 @app.route('/update', methods=["POST"])
@@ -34,19 +36,26 @@ def update():
             fp.write(text + ',' + sentiment + "\n") 
 
     main()
+
     return render_template('home.html', sentiment = 0, text = "") 
 
 
 def estimate(text):
     global cl
+
+    if cl == 0:
+        main()
+
     prob_dist = cl.prob_classify(text)
     sentiment = prob_dist.max()
+
     return sentiment
 
 
 def main():
     global cl
     print("// TRAIN DU MODELE")
+
     with open('./static/train.csv', 'r') as fp:
         cl = NBC(fp, format="csv")
 
