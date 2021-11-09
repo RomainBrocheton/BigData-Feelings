@@ -3,21 +3,27 @@
 {% block content %} 
 <div class="container">
     <form action="action" method="post">
-        <textarea class="form-control" name="text" id="" rows="3"></textarea>
+        <textarea class="form-control" name="text" id="" value="{{text}}"rows="3"></textarea>
         <input class="btn btn-primary"type="submit" value="Boom">
     </form>
 
     <div class="result">
         {% if sentiment == 0 %}
-        Ecrivez un texte
+            Ecrivez un texte
         {% else %}
-        {% if sentiment.p_pos > 0.5 %}
-        <h2 class="pos">Ce message est positif !</h2>
-        <img src="/static/image/positif.png">
-        {% else %}
-        <h2 class="neg">Ce message est négatif ...</h2>
-        <img src="/static/image/négatif.png">
-        {% endif %}
+            {% if sentiment == "pos" %}
+                <h2 class="pos">Ce message est positif !</h2>
+                <img src="/static/image/positif.png">
+            {% else %}
+                <h2 class="neg">Ce message est négatif ...</h2>
+                <img src="/static/image/négatif.png">
+            {% endif %}
+            <form action="update" method="post">
+                <input type="hidden" name="text" value="{{ text }}"><br/>
+                <input type="radio" name="result" value="1"> Estimation OK<br/>
+                <input type="radio" name="result" value="0"> Estimation KO<br/>
+                <input type="submit" value="Améliorer l'application">
+            </form>
         {% endif %}
     </div>
 </div>
