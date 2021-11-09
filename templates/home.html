@@ -1,23 +1,25 @@
 {% extends 'app.html' %}
 
 {% block content %} 
+<div class="container">
+    <form action="action" method="post">
+        <textarea class="form-control" name="text" id="" rows="3"></textarea>
+        <input class="btn btn-primary"type="submit" value="Boom">
+    </form>
 
-<form action="action" method="post">
-    <textarea class="form-control" name="text" id="" rows="3"></textarea>
-    <input class="btn btn-primary"type="submit" value="Boom">
-</form>
-
-<div class="result">
-    {% if sentiment == 0 %}
-    Ecrivez un texte
-    {% else %}
-    {% if sentiment.p_pos > 0.5 %}
-    content
-    {% else %}
-    pas content
-    {% endif %}
-    {% endif %}
+    <div class="result">
+        {% if sentiment == 0 %}
+        Ecrivez un texte
+        {% else %}
+        {% if sentiment.p_pos > 0.5 %}
+        <h2 class="pos">Ce message est positif !</h2>
+        <img src="/static/image/positif.png">
+        {% else %}
+        <h2 class="neg">Ce message est négatif ...</h2>
+        <img src="/static/image/négatif.png">
+        {% endif %}
+        {% endif %}
+    </div>
 </div>
-
 
 {% endblock %}
