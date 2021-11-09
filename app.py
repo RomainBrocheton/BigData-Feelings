@@ -81,7 +81,15 @@ def main():
         ("Polytech est une super école","pos"),
         ("Il pleut","neg"),
         ("C'est Noel","pos"),
-        ("Je mange une pizza","pos")
+        ("Je mange une pizza","pos"),
+        ("Polytech est la meilleure école du monde","pos"),
+        ("Je suis moi","pos"),
+        ("Nique toi","neg"),
+        ("Il fait beau aujourd'hui","pos"),
+        ("il fait pas beau aujourd'hui","neg"),
+        ("Il pleut aujourd'hui","neg"),
+        ("C'est Noel","pos"),
+        ("Il fait beau dans le sud","pos")
     ]
     accuracy = cl.accuracy(test)
     print("// ACCURACY : " + str(accuracy))

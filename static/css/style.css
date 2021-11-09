@@ -44,6 +44,7 @@ div.result{
 img{
     width: 150px;
     height: auto;
+    margin: 1rem;
 }
 
 h2.pos{
@@ -54,4 +55,20 @@ h2.pos{
 h2.neg{
     color: crimson;
     margin-bottom: 1rem;
+}
+
+form#reclassify{
+    width: 50%;
+    padding: 0.5rem 0.2rem;
+    margin: auto;
+}
+
+footer{
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    text-align: left !important;
+}
+footer *{
+    margin-right: 0.3rem;
 }
