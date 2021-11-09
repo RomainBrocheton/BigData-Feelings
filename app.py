@@ -9,7 +9,7 @@ cl = 0
 @app.route('/')
 def homepage():
     main()
-    
+
     return render_template('home.html', sentiment = 0, text = "")
 
 @app.route('/action', methods=["POST"])
@@ -33,7 +33,8 @@ def update():
                 sentiment = "neg"
             else:
                 sentiment = "pos"
-            fp.write(text + ',' + sentiment + "\n") 
+            fp.write(text + ',' + sentiment)
+        fp.write("\n") 
 
     main()
 
