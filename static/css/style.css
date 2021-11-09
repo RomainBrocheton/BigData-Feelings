@@ -18,25 +18,27 @@ form {
    background-color: #4c5870;
    color: white;
    border-radius: 10px;
-   width: 40%;
+   width: 45%;
 }
 
 textarea{
     width: 100%;
 }
 
-input{
+.btn{
     margin-top: 1rem;
-    background-color: #a2a9af !important;
+    background: #a2a9af !important;
     width: 100%;
     border: none !important;
     box-shadow: none !important;
 }
+.btn:hover{
+    background: linear-gradient(#a2a9af, #bbbbbb) !important;
+}
 
 div.result{
-    width: 50%;
+    width: 55%;
     height: auto;
-    border-radius: 50%;
 }
 
 img{
