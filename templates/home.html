@@ -3,10 +3,19 @@
 {% block content %} 
 
 <form action="action" method="post">
-    <textarea name="text" id="" cols="30" rows="10"></textarea>
-    <input type="submit" value="Boom">
+    <textarea class="form-control" name="text" id="" rows="3"></textarea>
+    <input class="btn btn-primary"type="submit" value="Boom">
 </form>
 
-{{ sentiment }}
+<div class="result">
+    {% if sentiment.p_pos > 0.5 %}
+    content
+    {% elif sentiment.p_pos <= 0.5 %}
+    pas content
+    {% else %}
+    Ecrivez un texte
+    {% endif %}
+</div>
+
 
 {% endblock %}
