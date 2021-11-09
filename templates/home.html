@@ -8,12 +8,14 @@
 </form>
 
 <div class="result">
+    {% if sentiment == 0 %}
+    Ecrivez un texte
+    {% else %}
     {% if sentiment.p_pos > 0.5 %}
     content
-    {% elif sentiment.p_pos <= 0.5 %}
-    pas content
     {% else %}
-    Ecrivez un texte
+    pas content
+    {% endif %}
     {% endif %}
 </div>
 
