@@ -5,19 +5,23 @@ from textblob.classifiers import NaiveBayesClassifier as NBC
 
 app = Flask(__name__)
 cl = 0
+accuracy = 0
 
 @app.route('/')
 def homepage():
+    global accuracy
     main()
 
-    return render_template('home.html', sentiment = 0, text = "")
+    return render_template('home.html', sentiment = 0, text = "", accuracy = accuracy * 100)
 
 @app.route('/action', methods=["POST"])
 def action():
+    global accuracy
+
     text = request.form.get("text")
     sentiment = estimate(text)
 
-    return render_template('home.html', text = text, sentiment = sentiment)
+    return render_template('home.html', text = text, sentiment = sentiment, accuracy = accuracy * 100)
 
 @app.route('/update', methods=["POST"])
 def update():
@@ -38,7 +42,18 @@ def update():
 
     main()
 
-    return render_template('home.html', sentiment = 0, text = "") 
+    return homepage()
+
+@app.route('/classifier')
+def classifier():
+    global cl
+    global accuracy
+
+    if cl == 0:
+        main()
+
+    informative = cl.informative_features(10)
+    return render_template('classifier.html', informative = informative, accuracy = accuracy)
 
 
 def estimate(text):
@@ -54,7 +69,7 @@ def estimate(text):
 
 
 def main():
-    global cl
+    global cl, accuracy
     print("// TRAIN DU MODELE")
 
     with open('./static/train.csv', 'r') as fp:
@@ -68,5 +83,5 @@ def main():
         ("C'est Noel","pos"),
         ("Je mange une pizza","pos")
     ]
-    precision = cl.accuracy(test)
-    print("// ACCURACY : " + str(precision))
+    accuracy = cl.accuracy(test)
+    print("// ACCURACY : " + str(accuracy))

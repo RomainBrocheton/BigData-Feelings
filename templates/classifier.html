@@ -1,0 +1,19 @@
+{% extends 'app.html' %}
+
+{% block content %}
+<p><a href="/">Retour</a></p>
+
+<table>
+    <tr>
+        <th>Contenu</th>
+        <th>Informatif</th>
+    </tr>
+    {% for content in informative %}
+    <tr>
+        <td>{{ content[0] }}</td>
+        <td>{{ content[1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

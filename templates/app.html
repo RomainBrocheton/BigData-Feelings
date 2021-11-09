@@ -11,5 +11,10 @@
 </head>
 <body>
     {% block content %}{% endblock %}
+    <footer>
+        <a href="/static/train.csv" download="">Data</a>
+        <a href="/classifier">Classifier</a>
+        <span>Précision : {{ accuracy }}%</span>
+    </footer>
 </body>
 </html>
