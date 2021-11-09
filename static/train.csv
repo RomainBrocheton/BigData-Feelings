@@ -26,3 +26,6 @@ Polytech,pos
 Une école,pos
 C'est noel,pos
 Il fait beau,pos
+Sentiment,pos
+Haine,neg
+Je te hais,neg
