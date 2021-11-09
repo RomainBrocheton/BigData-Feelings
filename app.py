@@ -12,7 +12,7 @@ def homepage():
     global accuracy
     main()
 
-    return render_template('home.html', sentiment = 0, text = "", accuracy = accuracy * 100)
+    return render_template('home.html', sentiment = 0, text = "", accuracy = accuracy)
 
 @app.route('/action', methods=["POST"])
 def action():
@@ -21,7 +21,7 @@ def action():
     text = request.form.get("text")
     sentiment = estimate(text)
 
-    return render_template('home.html', text = text, sentiment = sentiment, accuracy = accuracy * 100)
+    return render_template('home.html', text = text, sentiment = sentiment, accuracy = accuracy)
 
 @app.route('/update', methods=["POST"])
 def update():
