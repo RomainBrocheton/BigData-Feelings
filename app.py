@@ -63,6 +63,7 @@ def estimate(text):
         main()
 
     prob_dist = cl.prob_classify(text)
+    print(prob_dist)
     sentiment = prob_dist.max()
 
     return sentiment
@@ -75,21 +76,5 @@ def main():
     with open('./static/train.csv', 'r') as fp:
         cl = NBC(fp, format="csv")
 
-    test = [
-        ("J'aime les avions","pos"),
-        ("Je n'aime pas la pluie","neg"),
-        ("Polytech est une super école","pos"),
-        ("Il pleut","neg"),
-        ("C'est Noel","pos"),
-        ("Je mange une pizza","pos"),
-        ("Polytech est la meilleure école du monde","pos"),
-        ("Je suis moi","pos"),
-        ("Nique toi","neg"),
-        ("Il fait beau aujourd'hui","pos"),
-        ("il fait pas beau aujourd'hui","neg"),
-        ("Il pleut aujourd'hui","neg"),
-        ("C'est Noel","pos"),
-        ("Il fait beau dans le sud","pos")
-    ]
-    accuracy = cl.accuracy(test)
-    print("// ACCURACY : " + str(accuracy))
+    with open('./static/test.csv', 'r') as ft:
+        accuracy = cl.accuracy(ft, format="csv")
