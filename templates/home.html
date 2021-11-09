@@ -1,9 +1,12 @@
 {% extends 'app.html' %}
 
 {% block content %} 
-<h2>Meteo</h2>
 
-<p class="lead">Start using MeteoAPI :</p>
-<kbd>/place/YOUR PLACE</kbd>
+<form action="action" method="post">
+    <textarea name="text" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="Boom">
+</form>
+
+{{ sentiment }}
 
 {% endblock %}
