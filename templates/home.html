@@ -3,7 +3,7 @@
 {% block content %} 
 <div class="container">
     <form action="action" method="post">
-        <p class="lead">Feelings</p>
+        <p class="lead">Ecrivez votre message :</p>
         <textarea class="form-control" name="text" id="" rows="3" required></textarea>
         <input class="btn btn-primary"type="submit" value="Boom">
     </form>
@@ -22,9 +22,10 @@
             <form id="reclassify" action="update" method="post">
                 <div class="col-md-12">
                     <input type="hidden" name="text" value="{{ text }}">
-                    <input type="radio" name="result" value="1"> Estimation bonne<br/>
-                    <input type="radio" name="result" value="0"> Estimation mauvaise<br/>
-                    <input type="submit" value="Améliorer l'application">
+                    <input class="align top" type="radio" name="result" value="1"> Estimation bonne<br/>
+                    <!-- <input class="align" type="radio" name="result" value=""> Neutre<br/> -->
+                    <input class="align" type="radio" name="result" value="0"> Estimation mauvaise<br/>
+                    <input class="button" type="submit" value="Améliorer">
                 </div>
             </form>
         {% endif %}

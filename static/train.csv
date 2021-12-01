@@ -29,3 +29,15 @@ Il fait beau,pos
 Sentiment,pos
 Haine,neg
 Je te hais,neg
+je n'aime pas le chocolat,neg
+je suis contente ,pos
+je suis négative,neg
+Je n'aime pas Cyan,neg
+J'aime les jus de fruits,pos
+tu es moche,neg
+J'ai mangé un gateau,neg
+J'ai mangé un gateau,pos
+J'ai mangé un gateau,pos
+J'ai mangé un gateau,neg
+J'ai mangé un gateau,pos
+Je suis fatiguée,neg
